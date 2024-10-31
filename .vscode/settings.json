@@ -51,5 +51,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "CrashClone.sln"
+    "dotnet.defaultSolution": "CrashMMK.sln"
 }
