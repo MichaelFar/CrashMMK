@@ -14,6 +14,8 @@ public class PlayerController : MonoBehaviour
 
     private float alpha = 0.0f;
 
+    private Transform retainedVector;
+
     // Update is called once per frame
     void Update()
     {
@@ -64,24 +66,12 @@ public class PlayerController : MonoBehaviour
             rb.AddForce(Vector3.up * 450);
         }
 
-        
 
-        alpha = Mathf.Clamp(alpha, 0.0f, 1.0f);
-
-        alpha += Time.deltaTime;
-
-        PlayerModel.transform.LookAt(new Vector3(inputVector.x * alpha, inputVector.y, inputVector.z * alpha));
-
-        if (!Input.anyKey)
+        if(alpha >= 0.0f)
         {
-            alpha = 0.0f;
             PlayerModel.transform.LookAt(inputVector);
         }
-        else
-        {
             
-        }
-        
 
         transform.position = inputVector;
         
@@ -89,7 +79,7 @@ public class PlayerController : MonoBehaviour
 
     private bool IsGrounded()
     {
-        var raycast = Physics.Raycast(transform.position, Vector3.down, 2.3f);
+        var raycast = Physics.Raycast(transform.position, Vector3.down, 1.2f);
 
         return raycast;
     }
