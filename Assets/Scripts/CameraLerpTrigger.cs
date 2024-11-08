@@ -25,7 +25,7 @@ public class CameraLerpTrigger: MonoBehaviour
 
     // Update is called once per frame
 
-    private void Update()
+    private void FixedUpdate()
     {
         
         var AlphaSlope = Time.deltaTime * 1.0f/20.0f;
