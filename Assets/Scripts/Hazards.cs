@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class Hazards : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+   /* Mateo Jimenez
+    * 11/7/2024
+    * handles Hazard killing and respawning 
+    */
 
-    // Update is called once per frame
-    void Update()
+    //checks if player collides with enemy
+    private void OnCollisionEnter(Collision collision)
     {
-        
+        if (collision.gameObject.GetComponent<PlayerLives>())
+        {
+            collision.gameObject.GetComponent<PlayerLives>().levelRespawn();
+        }
     }
 }
