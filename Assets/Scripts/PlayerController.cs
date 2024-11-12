@@ -20,9 +20,9 @@ public class PlayerController : MonoBehaviour
 
     private bool grounded = true;
 
-    private enum PlayerStates {Moving,Jumping,Attacking}
+    public enum PlayerStates {Moving,Jumping,Attacking}
 
-    private PlayerStates CurrentState;
+    public PlayerStates CurrentState;
 
     // Update is called once per frame
     private void Update()
@@ -33,7 +33,7 @@ public class PlayerController : MonoBehaviour
         {
             rb.AddForce(Vector3.up * 450 * 3);
         }
-        if(Input.GetKeyDown(KeyCode.Mouse0) && !(AttackParticle.isPlaying))
+        if(Input.GetKeyDown(KeyCode.E) && !(AttackParticle.isPlaying))
         {
             AttackParticle.Play();
             CurrentState = PlayerStates.Attacking;
