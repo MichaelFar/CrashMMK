@@ -16,16 +16,27 @@ public class PlayerController : MonoBehaviour
 
     private Transform retainedVector;
 
+    private bool grounded = true;
+
     // Update is called once per frame
-    void Update()
+    private void Update()
+    {
+        grounded = IsGrounded();
+
+        if (grounded && Input.GetKeyDown(KeyCode.Space))
+        {
+            rb.AddForce(Vector3.up * 450 * 3);
+        }
+    }
+    void FixedUpdate()
     {
         Vector3 inputVector = transform.position;
 
-        bool grounded = IsGrounded();
+        
 
         float tempSpeed = speed;
 
-        float speedMod = tempSpeed / 3;
+        float speedMod = tempSpeed / 2;
 
         if(!grounded)
         {
@@ -61,10 +72,7 @@ public class PlayerController : MonoBehaviour
             //LerpToDirection(alpha);
         }
 
-        if (grounded && Input.GetKeyDown(KeyCode.Space))
-        {
-            rb.AddForce(Vector3.up * 450);
-        }
+        
 
 
         if(alpha >= 0.0f)
