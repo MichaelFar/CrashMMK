@@ -12,15 +12,41 @@ public class PlayerLives : MonoBehaviour
     // Start is called before the first frame update
 
     public int lives = 5;
-    
+
+    public int deathY = -3;
+
+
     public GameObject levelRespawnPoint;
 
-    public int testSpeed = 10;
+   
 
-    //For testing purposes delete before use
-     void Update()
+    public Vector3 raycastOrigin;
+
+    
+
+    
+    void Update()
     {
-        transform.position += testSpeed * Vector3.left * Time.deltaTime;
+        if (transform.position.y <= deathY)
+        {
+            levelRespawn();
+        }
+
+        raycastOrigin = transform.position - new Vector3(0, 0, 0);
+        
+
+        RaycastHit hitInfo;
+        if (Physics.Raycast(raycastOrigin, Vector3.down, out hitInfo))
+        {
+            if (hitInfo.collider.GetComponent<Enemy>() && !hitInfo.collider.GetComponent<Enemy>().isTurtle)
+            {
+                Destroy(hitInfo.collider.GetComponent<Enemy>().enemyObject);
+            }
+            
+        }
+        
+
+
     }
 
 
