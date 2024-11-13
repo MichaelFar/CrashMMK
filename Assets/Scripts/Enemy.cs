@@ -42,8 +42,7 @@ public class Enemy : MonoBehaviour
             EnemyFrontMove();
         }
 
-
-
+    
     }
 
     //detects if enemy has collided with a wall and switches direction
@@ -89,5 +88,13 @@ public class Enemy : MonoBehaviour
             transform.position += Vector3.back * moveSpeed * Time.deltaTime;
         }
     }
+    //kills enemy
+    public void EnemyDeath()
+    {
+        Destroy(gameObject);
+    }
 
+
+
+    
 }
