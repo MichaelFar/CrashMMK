@@ -3,18 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-
-public class PlayerDeathEvent : UnityEvent<int>
-{
-}
 public class AttackParticle : MonoBehaviour
 {
-    private PlayerDeathEvent PlayerDead;
     
+    UnityEvent PlayerDead = new UnityEvent();
+
+    public GameObject player;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        PlayerDead.AddListener(player.GetComponent<PlayerController>().PlayerDeath);
     }
 
     // Update is called once per frame
@@ -28,9 +27,13 @@ public class AttackParticle : MonoBehaviour
 
         print("Particle Collided and other is " + other);
 
-        if(enemyComponent.isTurtle)
+        if(!enemyComponent.isShielded)
         {
             enemyComponent.EnemyDeath();
+        }
+        else
+        {
+            PlayerDead.Invoke();
         }
         if(crateComponent)
         {

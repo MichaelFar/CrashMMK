@@ -901,6 +901,10 @@ PrefabInstance:
       propertyPath: levelRespawnPoint
       value: 
       objectReference: {fileID: 111520088}
+    - target: {fileID: 2185829609174184732, guid: ad32facb894e2bc469ebf324f31d5a8b, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1009834082}
     - target: {fileID: 3141115979295394225, guid: ad32facb894e2bc469ebf324f31d5a8b, type: 3}
       propertyPath: m_Name
       value: Player
