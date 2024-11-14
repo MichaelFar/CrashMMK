@@ -52,6 +52,17 @@ public class PlayerLives : MonoBehaviour
                 }
 
              }
+            else if (hitInfo.collider.GetComponent<Crates>())
+            {
+                var Stomp = hitInfo.collider.GetComponent<Crates>();
+
+                if (Stomp != null)
+                {
+                    Stomp.CrateDestroy();
+
+                }
+
+            }
         }
       
     }

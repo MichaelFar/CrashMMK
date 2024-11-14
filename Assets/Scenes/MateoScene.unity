@@ -225,7 +225,7 @@ Transform:
   m_GameObject: {fileID: 93852413}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.32, y: 1.2, z: -2.83}
+  m_LocalPosition: {x: 5.4, y: 1.2, z: -7.02}
   m_LocalScale: {x: 1, y: 0.44633, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -243,6 +243,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd06d8fc31d1d7a4990223c4f8c9e24f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dropCount: 5
+  dropFruit: {fileID: 1339692125}
 --- !u!1 &204742975
 GameObject:
   m_ObjectHideFlags: 0
@@ -719,7 +721,7 @@ Transform:
   m_GameObject: {fileID: 440109003}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.23, y: 1.17, z: -5.52}
+  m_LocalPosition: {x: 6.88, y: 2.03, z: 3.99}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -937,7 +939,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9f5609c44bd20544a3a598f6840d39a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wumpaFruit: {fileID: 0}
+  wumpaFruit: {fileID: 1339692125}
 --- !u!1 &1449052515
 GameObject:
   m_ObjectHideFlags: 0
@@ -1042,7 +1044,7 @@ Transform:
   m_GameObject: {fileID: 1449052515}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.31, y: 1.32, z: -6.46}
+  m_LocalPosition: {x: 1.31, y: 1.32, z: -7.03}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
