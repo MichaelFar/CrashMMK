@@ -16,9 +16,11 @@ public class PlayerLives : MonoBehaviour
     public int deathY = -3;
 
 
+    public GameObject player;
+
     public GameObject levelRespawnPoint;
 
-   
+    
 
     public Vector3 raycastOrigin;
 
@@ -47,10 +49,7 @@ public class PlayerLives : MonoBehaviour
 
         if(lives == 0)
         {
-            print("Game Over");
-
-            gameObject.GetComponent<MeshRenderer>().enabled = false;
-            this.enabled = false;
+            player.GetComponent<PlayerController>().PlayerDeath();
         }
         else
         {
@@ -62,8 +61,6 @@ public class PlayerLives : MonoBehaviour
     public void addLives(int newLives = 1 )
     {
         lives += newLives;
-
-
     }
 
    

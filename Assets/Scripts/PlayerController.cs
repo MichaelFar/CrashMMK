@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour
     {
         grounded = IsGrounded();
 
-        var raycastOrigin = transform.position - new Vector3(0, 0, 0);
+        var raycastOrigin = transform.position - new Vector3(0, 0.2f, 0);
 
         RaycastHit hitInfo;
 
@@ -120,9 +120,6 @@ public class PlayerController : MonoBehaviour
             //LerpToDirection(alpha);
         }
 
-        
-
-
         if(alpha >= 0.0f)
         {
             PlayerModel.transform.LookAt(inputVector);
@@ -140,7 +137,14 @@ public class PlayerController : MonoBehaviour
         return raycast;
     }
 
+    public void PlayerDeath()
+    {
+        print("Game Over");
+
+        PlayerModel.SetActive(false);
     
+
+    }
 
 
 

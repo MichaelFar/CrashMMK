@@ -1,9 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
+
+public class PlayerDeathEvent : UnityEvent<int>
+{
+}
 public class AttackParticle : MonoBehaviour
 {
+    private PlayerDeathEvent PlayerDead;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -18,9 +25,10 @@ public class AttackParticle : MonoBehaviour
         var enemyComponent = other.GetComponent<Enemy>();
 
         var crateComponent = other.GetComponent<Crates>();
+
         print("Particle Collided and other is " + other);
 
-        if(enemyComponent)
+        if(enemyComponent.isTurtle)
         {
             enemyComponent.EnemyDeath();
         }
