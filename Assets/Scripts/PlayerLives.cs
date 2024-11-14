@@ -27,26 +27,33 @@ public class PlayerLives : MonoBehaviour
     
     void Update()
     {
+        //kills player if falls into void
         if (transform.position.y <= deathY)
         {
             levelRespawn();
         }
 
+
+        //detects if player is jumping on enemy to kill it
         raycastOrigin = transform.position - new Vector3(0, 0, 0);
         
-
         RaycastHit hitInfo;
         if (Physics.Raycast(raycastOrigin, Vector3.down, out hitInfo))
         {
+            
             if (hitInfo.collider.GetComponent<Enemy>() && !hitInfo.collider.GetComponent<Enemy>().isTurtle)
             {
-                Destroy(hitInfo.collider.GetComponent<Enemy>().enemyObject);
-            }
-            
+                var Stomp = hitInfo.collider.GetComponent<Enemy>();
+
+                if (Stomp != null)
+                {
+                    Stomp.EnemyDeath();
+
+                }
+
+             }
         }
-        
-
-
+      
     }
 
 
