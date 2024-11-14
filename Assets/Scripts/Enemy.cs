@@ -28,11 +28,29 @@ public class Enemy : MonoBehaviour
 
     public GameObject enemyObject;
 
+    public Vector3 raycastEn;
+
    
+    
+
+
 
     //toggles between front to back or side to side direction
     void Update()
     {
+        raycastEn = transform.position - new Vector3(0, 0, 0);
+
+        RaycastHit hitInfo;
+        if (movingRight && !Physics.Raycast(raycastEn, Vector3.down, out hitInfo))
+        {
+            movingRight = false;
+        }
+        else if(!movingRight && !Physics.Raycast(raycastEn, Vector3.down, out hitInfo))
+        {
+            movingRight = true;
+        }
+
+
         if (sideToSide)
         {
             EnemySideMove();
@@ -48,6 +66,7 @@ public class Enemy : MonoBehaviour
     //detects if enemy has collided with a wall and switches direction
     private void OnCollisionEnter(Collision collision)
     {
+        
         if (movingRight && !collision.gameObject.GetComponent<PlayerLives>())
         {
             movingRight = false;
