@@ -32,12 +32,14 @@ public class PlayerController : MonoBehaviour
         if (grounded && Input.GetKeyDown(KeyCode.Space))
         {
             rb.AddForce(Vector3.up * 450 * 3);
+            
         }
         if(Input.GetKeyDown(KeyCode.E) && !(AttackParticle.isPlaying))
         {
             AttackParticle.Play();
             CurrentState = PlayerStates.Attacking;
             
+
         }
         
     }
@@ -105,6 +107,22 @@ public class PlayerController : MonoBehaviour
         return raycast;
     }
 
-    
-    
+    private void OnParticleCollision(GameObject other)
+    {
+        var collisionEvents = new List<ParticleCollisionEvent>();
+        int numCollisions = AttackParticle.GetCollisionEvents(other, collisionEvents);
+
+        var enemyComponent = other.GetComponent<Enemy>();
+
+        print("Particle Collided and other is " + other);
+
+        if(numCollisions > 0 && enemyComponent)
+        {
+            print("Enemy hit by particle");
+            //enemyComponent.takedamage or some such similar
+        }
+    }
+
+
+
 }
