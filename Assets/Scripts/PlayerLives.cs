@@ -35,35 +35,7 @@ public class PlayerLives : MonoBehaviour
 
 
         //detects if player is jumping on enemy to kill it
-        raycastOrigin = transform.position - new Vector3(0, 0, 0);
         
-        RaycastHit hitInfo;
-        if (Physics.Raycast(raycastOrigin, Vector3.down, out hitInfo))
-        {
-            
-            if (hitInfo.collider.GetComponent<Enemy>() && !hitInfo.collider.GetComponent<Enemy>().isTurtle)
-            {
-                var Stomp = hitInfo.collider.GetComponent<Enemy>();
-
-                if (Stomp != null)
-                {
-                    Stomp.EnemyDeath();
-
-                }
-
-             }
-            else if (hitInfo.collider.GetComponent<Crates>())
-            {
-                var Stomp = hitInfo.collider.GetComponent<Crates>();
-
-                if (Stomp != null)
-                {
-                    Stomp.CrateDestroy();
-
-                }
-
-            }
-        }
       
     }
 
