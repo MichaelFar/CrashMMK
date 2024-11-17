@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
 
     public GameObject PlayerModel;
 
+    public ParticleSystem AttackParticle;
+
     public Rigidbody rb;
 
     private float alpha = 0.0f;
@@ -17,6 +19,10 @@ public class PlayerController : MonoBehaviour
     private Transform retainedVector;
 
     private bool grounded = true;
+
+    public enum PlayerStates {Moving,Jumping,Attacking}
+
+    public PlayerStates CurrentState;
 
     // Update is called once per frame
     private void Update()
@@ -27,6 +33,13 @@ public class PlayerController : MonoBehaviour
         {
             rb.AddForce(Vector3.up * 450 * 3);
         }
+        if(Input.GetKeyDown(KeyCode.E) && !(AttackParticle.isPlaying))
+        {
+            AttackParticle.Play();
+            CurrentState = PlayerStates.Attacking;
+            
+        }
+        
     }
     void FixedUpdate()
     {
