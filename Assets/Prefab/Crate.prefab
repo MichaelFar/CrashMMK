@@ -118,5 +118,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd06d8fc31d1d7a4990223c4f8c9e24f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dropCount: 1
-  dropFruit: {fileID: 0}
+  dropCount: 5
+  dropFruit: {fileID: 8319238905411866179, guid: 4960e5fb6394d904889aa0de9ba566e2, type: 3}
+  spawnRadius: 1.5
