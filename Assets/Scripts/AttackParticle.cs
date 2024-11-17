@@ -27,13 +27,17 @@ public class AttackParticle : MonoBehaviour
 
         print("Particle Collided and other is " + other);
 
-        if(!enemyComponent.isShielded)
+        if (enemyComponent)
         {
-            enemyComponent.EnemyDeath();
-        }
-        else
-        {
-            PlayerDead.Invoke();
+            if (!enemyComponent.isShielded)
+            {
+                enemyComponent.EnemyDeath();
+            }
+            else
+            {
+                PlayerDead.Invoke();
+                
+            }
         }
         if(crateComponent)
         {

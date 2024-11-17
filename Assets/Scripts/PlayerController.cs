@@ -133,7 +133,7 @@ public class PlayerController : MonoBehaviour
     private bool IsGrounded()
     {
         var raycast = Physics.Raycast(transform.position, Vector3.down, 1.2f);
-
+        
         return raycast;
     }
 
@@ -141,7 +141,7 @@ public class PlayerController : MonoBehaviour
     {
         print("Game Over");
 
-        PlayerModel.SetActive(false);
+        //PlayerModel.SetActive(false);
     
 
     }
