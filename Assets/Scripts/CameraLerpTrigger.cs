@@ -15,8 +15,6 @@ public class CameraLerpTrigger: MonoBehaviour
 
     private float alpha = 0.0f;
 
-    private bool InTriggerZone = false;
-
     private Vector3 OriginalPositionOfCamera;
     void Start()
     {

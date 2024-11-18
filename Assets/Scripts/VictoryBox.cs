@@ -5,6 +5,8 @@ using UnityEngine;
 public class VictoryBox : MonoBehaviour
 {
     // Start is called before the first frame update
+
+    public GameObject UIElements;
     void Start()
     {
         
@@ -18,7 +20,8 @@ public class VictoryBox : MonoBehaviour
         if (player)
         {
             print("Reached victory box");
-            LevelTransitionSingleton.GoToNextLevel();
+            UIElements.GetComponent<UIElements>().ToggleRoundEndFrame();
+            Destroy(player);
         }
     }
 }

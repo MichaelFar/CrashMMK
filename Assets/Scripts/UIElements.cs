@@ -5,14 +5,24 @@ using UnityEngine;
 public class UIElements : MonoBehaviour
 {
     // Start is called before the first frame update
-    void Start()
+
+    public GameObject HUDRoundEndFrame;
+    private void Start()
     {
-        
+        ToggleRoundEndFrame();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void CallNextLevel()
     {
-        
+        LevelTransitionSingleton.GoToNextLevel();
+    }
+    public void CallReplayLevel()
+    {
+        LevelTransitionSingleton.ReplayLevel();
+    }
+
+    public void ToggleRoundEndFrame()
+    {
+        HUDRoundEndFrame.SetActive(!HUDRoundEndFrame.activeSelf);
     }
 }

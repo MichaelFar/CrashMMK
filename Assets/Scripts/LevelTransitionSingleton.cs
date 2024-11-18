@@ -15,10 +15,17 @@ public static class LevelTransitionSingleton
     {
         
         SceneManager.LoadScene(NextLevelIndex);
+
         NextLevelIndex += 1;
+
         if(SceneManager.sceneCount == NextLevelIndex)
         {
             NextLevelIndex = 0;
         }
+    }
+
+    public static void ReplayLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
