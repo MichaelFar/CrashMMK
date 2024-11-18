@@ -29,17 +29,52 @@ public class PlayerController : MonoBehaviour
     {
         grounded = IsGrounded();
 
+        var raycastOrigin = transform.position - new Vector3(0, 0.2f, 0);
+
+        RaycastHit hitInfo;
+
         if (grounded && Input.GetKeyDown(KeyCode.Space))
         {
             rb.AddForce(Vector3.up * 450 * 3);
+            
         }
         if(Input.GetKeyDown(KeyCode.E) && !(AttackParticle.isPlaying))
         {
             AttackParticle.Play();
             CurrentState = PlayerStates.Attacking;
-            
+
         }
         
+
+        if (Physics.Raycast(raycastOrigin, Vector3.down, out hitInfo))
+        {
+
+            if (hitInfo.collider.GetComponent<Enemy>() && !hitInfo.collider.GetComponent<Enemy>().isTurtle)
+            {
+                var Stomp = hitInfo.collider.GetComponent<Enemy>();
+
+                if (Stomp != null)
+                {
+                    Stomp.EnemyDeath();
+
+                }
+                rb.AddForce(Vector3.up * 450 * 3);
+
+            }
+            else if (hitInfo.collider.GetComponent<Crates>())
+            {
+                var Stomp = hitInfo.collider.GetComponent<Crates>();
+
+                if (Stomp != null)
+                {
+                    Stomp.CrateDestroy();
+
+                }
+                rb.AddForce(Vector3.up * 450 * 3);
+
+            }
+        }
+
     }
     void FixedUpdate()
     {
@@ -85,9 +120,6 @@ public class PlayerController : MonoBehaviour
             //LerpToDirection(alpha);
         }
 
-        
-
-
         if(alpha >= 0.0f)
         {
             PlayerModel.transform.LookAt(inputVector);
@@ -101,10 +133,19 @@ public class PlayerController : MonoBehaviour
     private bool IsGrounded()
     {
         var raycast = Physics.Raycast(transform.position, Vector3.down, 1.2f);
-
+        
         return raycast;
     }
 
+    public void PlayerDeath()
+    {
+        print("Game Over");
+
+        //PlayerModel.SetActive(false);
     
-    
+
+    }
+
+
+
 }

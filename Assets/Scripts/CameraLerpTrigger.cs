@@ -38,10 +38,6 @@ public class CameraLerpTrigger: MonoBehaviour
         
         alpha = Math.Clamp(alpha, 0.0f, 1.0f);
 
-        print("In trigger zone");
-        
-        print("Camera position is " + transform.position);
-
         if(Vector3.Distance(transform.position, DestinationVector) < 0.8f)
         {
             alpha -= AlphaSlope;

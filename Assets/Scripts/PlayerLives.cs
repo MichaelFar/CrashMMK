@@ -16,9 +16,11 @@ public class PlayerLives : MonoBehaviour
     public int deathY = -3;
 
 
+    public GameObject player;
+
     public GameObject levelRespawnPoint;
 
-   
+    
 
     public Vector3 raycastOrigin;
 
@@ -35,35 +37,7 @@ public class PlayerLives : MonoBehaviour
 
 
         //detects if player is jumping on enemy to kill it
-        raycastOrigin = transform.position - new Vector3(0, 0, 0);
         
-        RaycastHit hitInfo;
-        if (Physics.Raycast(raycastOrigin, Vector3.down, out hitInfo))
-        {
-            
-            if (hitInfo.collider.GetComponent<Enemy>() && !hitInfo.collider.GetComponent<Enemy>().isTurtle)
-            {
-                var Stomp = hitInfo.collider.GetComponent<Enemy>();
-
-                if (Stomp != null)
-                {
-                    Stomp.EnemyDeath();
-
-                }
-
-             }
-            else if (hitInfo.collider.GetComponent<Crates>())
-            {
-                var Stomp = hitInfo.collider.GetComponent<Crates>();
-
-                if (Stomp != null)
-                {
-                    Stomp.CrateDestroy();
-
-                }
-
-            }
-        }
       
     }
 
@@ -75,10 +49,7 @@ public class PlayerLives : MonoBehaviour
 
         if(lives == 0)
         {
-            print("Game Over");
-
-            gameObject.GetComponent<MeshRenderer>().enabled = false;
-            this.enabled = false;
+            player.GetComponent<PlayerController>().PlayerDeath();
         }
         else
         {
@@ -90,8 +61,6 @@ public class PlayerLives : MonoBehaviour
     public void addLives(int newLives = 1 )
     {
         lives += newLives;
-
-
     }
 
    
