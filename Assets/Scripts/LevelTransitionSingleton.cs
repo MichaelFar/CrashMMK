@@ -18,7 +18,7 @@ public static class LevelTransitionSingleton
 
         NextLevelIndex += 1;
 
-        if(SceneManager.sceneCount == NextLevelIndex)
+        if(NextLevelIndex == 4)
         {
             NextLevelIndex = 0;
         }

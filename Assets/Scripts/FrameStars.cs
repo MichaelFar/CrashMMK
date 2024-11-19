@@ -35,7 +35,11 @@ public class FrameStars : MonoBehaviour
     public void DeactivateLastStar()
     {
         print("Deactivating next star");
-        hearts[StarIndexToActivate - 1].GetComponent<Image>().sprite = DeactivatedStar;
+        if(StarIndexToActivate - 1 > 0)
+        {
+            hearts[StarIndexToActivate - 1].GetComponent<Image>().sprite = DeactivatedStar;
+        }
+        
         StarIndexToActivate--;
         Mathf.Clamp(StarIndexToActivate, 0, hearts.Length - 1);
     }
