@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 
 
-/* Mateo Jimenez
+/* Mateo Jimenez, Michael farrar
  * 11/4/2024
  * Handles Player lives and respawn
  */
@@ -29,7 +29,9 @@ public class PlayerLives : MonoBehaviour
 
     public GameObject UIElements;
 
-
+    /// <summary>
+    /// Populates the initial Lives ui
+    /// </summary>
     private void Start()
     {
         for (int i = 0; i < lives; i++)
@@ -74,10 +76,14 @@ public class PlayerLives : MonoBehaviour
         }
 
     }
-   
+   /// <summary>
+   /// Adds to lives, updates ui
+   /// </summary>
+   /// <param name="newLives"></param>
     public void addLives(int newLives = 1 )
     {
         lives += newLives;
+        LivesUI.GetComponent<FrameStars>().ActivateNextStar();
     }
 
    

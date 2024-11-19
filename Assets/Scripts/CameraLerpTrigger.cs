@@ -4,7 +4,11 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
-
+/// <summary>
+/// Name: Michael Farrar
+/// Description: Handles the camera movement in relation to the player
+/// Date: 11/18/24
+/// </summary>
 public class CameraLerpTrigger: MonoBehaviour
 {
     // Start is called before the first frame update
@@ -22,7 +26,9 @@ public class CameraLerpTrigger: MonoBehaviour
     }
 
     // Update is called once per frame
-
+    /// <summary>
+    /// Linearly interpolates the camera towards a certain offset based on the player's z position
+    /// </summary>
     private void FixedUpdate()
     {
         
@@ -42,6 +48,11 @@ public class CameraLerpTrigger: MonoBehaviour
         }
 
     }
+    /// <summary>
+    /// Unused, a type of easing
+    /// </summary>
+    /// <param name="x"></param>
+    /// <returns></returns>
     private double easeOutQuart(double x)
     {
         return 1.0 - Math.Pow(1.0 - x, 4.0);

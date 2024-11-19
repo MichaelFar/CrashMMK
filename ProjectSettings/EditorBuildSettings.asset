@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/MichaelScene.unity
+    path: Assets/Scenes/Michael_Level_3.unity
     guid: d8bc087f68304e94c95b3c8fd0bf7635
   - enabled: 1
     path: Assets/Scenes/MichaelLevel1.unity

@@ -12,7 +12,7 @@ public class MyIntEvent : UnityEvent<int>
 
 public class BonusLives : MonoBehaviour
 {
-    /* Mateo Jimenez
+    /* Mateo Jimenez, Michael farrar
      * 11/7/2024
      * player will get a bomus life if player collects 100 fruit
      */
@@ -61,13 +61,17 @@ public class BonusLives : MonoBehaviour
 
         }
     }
-
+    /// <summary>
+    /// Increments score, updates ui
+    /// </summary>
     public void addScore()
     {
         totalFruit += fruitValue;
         ScoreText.GetComponent<TextMeshProUGUI>().text = "" + totalFruit;
     }
-
+    /// <summary>
+    /// Increments countfruit, which is checked for adding bonus lives
+    /// </summary>
     public void addCount()
     {
         countFruit += fruitValue;

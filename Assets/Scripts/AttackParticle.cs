@@ -2,7 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-
+/// <summary>
+/// Name: Michael Farrar
+/// Description: Activates a particle and checks for collisions with certain objects to determine behavior
+/// Date: 11/18/24
+/// </summary>
 public class AttackParticle : MonoBehaviour
 {
     
@@ -17,6 +21,10 @@ public class AttackParticle : MonoBehaviour
     }
 
     // Update is called once per frame
+    /// <summary>
+    /// If a particle collides with something, determine what it collided with then act accordingly. Handles how attacks interact with enemies
+    /// </summary>
+    /// <param name="other"></param>
     private void OnParticleCollision(GameObject other)
     {
         var collisionEvents = new List<ParticleCollisionEvent>();

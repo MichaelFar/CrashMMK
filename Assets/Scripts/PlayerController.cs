@@ -2,7 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using static UnityEngine.UI.Image;
-
+/// <summary>
+/// Name: Michael Farrar
+/// Description: Controls player movement
+/// Date: 11/18/24
+/// </summary>
 public class PlayerController : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -20,11 +24,17 @@ public class PlayerController : MonoBehaviour
 
     private bool grounded = true;
 
+    /// <summary>
+    /// Unused enum for player state
+    /// </summary>
     public enum PlayerStates {Moving,Jumping,Attacking}
 
     public PlayerStates CurrentState;
 
     // Update is called once per frame
+    /// <summary>
+    /// contains logic for player jumping and attacking
+    /// </summary>
     private void Update()
     {
         grounded = IsGrounded();
@@ -76,6 +86,9 @@ public class PlayerController : MonoBehaviour
         }
 
     }
+    /// <summary>
+    /// Controls logic for player movement, in FixedUpdate due to camera needing to be as well
+    /// </summary>
     void FixedUpdate()
     {
         Vector3 inputVector = transform.position;
@@ -129,14 +142,19 @@ public class PlayerController : MonoBehaviour
         transform.position = inputVector;
         
     }
-
+    /// <summary>
+    /// Checks if grounded with raycast
+    /// </summary>
+    /// <returns></returns>
     private bool IsGrounded()
     {
         var raycast = Physics.Raycast(transform.position, Vector3.down, 1.2f);
         
         return raycast;
     }
-
+    /// <summary>
+    /// Called from playerlives
+    /// </summary>
     public void PlayerDeath()
     {
         print("Game Over");

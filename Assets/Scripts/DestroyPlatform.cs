@@ -1,7 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// Name: Mateo Jimenez
+/// Description: Breakable platform with visible stage changing for player feedback
+/// Date: 11/18/24
+/// </summary>
 public class DestroyPlatform : MonoBehaviour
 {
     public float breaktime = .75f;
@@ -13,6 +17,10 @@ public class DestroyPlatform : MonoBehaviour
     private bool breaking = false;
 
     public GameObject Platform;
+    /// <summary>
+    /// Calls the coroutine for stage changing, checks if already doing so
+    /// </summary>
+    /// <param name="collision"></param>
     private void OnCollisionEnter(Collision collision)
     { 
         if (collision.gameObject.GetComponent<PlayerController>() && !breaking)
@@ -23,7 +31,10 @@ public class DestroyPlatform : MonoBehaviour
             
         }
     }
-
+    /// <summary>
+    /// Progresses through 3 stages then is destroyed
+    /// </summary>
+    /// <returns></returns>
     private IEnumerator WaitToDestroy()
     {
 
