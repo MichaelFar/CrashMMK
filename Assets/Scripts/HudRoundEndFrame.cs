@@ -15,6 +15,7 @@ public class HudRoundEndFrame : MonoBehaviour
         var lives = player.GetComponent<PlayerLives>().lives;
         var score = player.GetComponent<BonusLives>().totalFruit;
         var text = FinalScoreText.GetComponent<TextMeshProUGUI>().text = "" + score;
+        Destroy(player.GetComponent<PlayerController>());
         for (int i = 0; i < lives; i++)
         {
             

@@ -123,11 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &62983299 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4498139535187191500, guid: 988769c23c43fa040a9fd75b93aaa678, type: 3}
-  m_PrefabInstance: {fileID: 1072459938}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &92277644
 GameObject:
   m_ObjectHideFlags: 0
@@ -728,6 +723,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8491025345204784151, guid: 988769c23c43fa040a9fd75b93aaa678, type: 3}
   m_PrefabInstance: {fileID: 1072459938}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1639346127 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8549525652510383311, guid: 988769c23c43fa040a9fd75b93aaa678, type: 3}
+  m_PrefabInstance: {fileID: 1072459938}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1652828650
 GameObject:
   m_ObjectHideFlags: 0
@@ -909,7 +909,7 @@ PrefabInstance:
     - target: {fileID: 734189721491409804, guid: ad32facb894e2bc469ebf324f31d5a8b, type: 3}
       propertyPath: FinalRatingText
       value: 
-      objectReference: {fileID: 62983299}
+      objectReference: {fileID: 1639346127}
     - target: {fileID: 734189721491409804, guid: ad32facb894e2bc469ebf324f31d5a8b, type: 3}
       propertyPath: levelRespawnPoint
       value: 

@@ -61,9 +61,9 @@ public class PlayerLives : MonoBehaviour
 
         if (lives == 0)
         {
-            player.GetComponent<PlayerController>().PlayerDeath();
+            //player.GetComponent<PlayerController>().PlayerDeath();
             
-            FinalRatingText.GetComponent<TextMeshProUGUI>().text = "You did bad";
+            FinalRatingText.GetComponent<TextMeshProUGUI>().text = "You did bad!";
 
             UIElements.GetComponent<UIElements>().ToggleRoundEndFrame();
         }

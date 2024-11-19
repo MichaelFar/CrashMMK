@@ -21,7 +21,7 @@ public class VictoryBox : MonoBehaviour
         {
             print("Reached victory box");
             UIElements.GetComponent<UIElements>().ToggleRoundEndFrame();
-            Destroy(player);
+            
         }
     }
 }
