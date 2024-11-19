@@ -5034,6 +5034,7 @@ MonoBehaviour:
   updatedLives:
     m_PersistentCalls:
       m_Calls: []
+  ScoreText: {fileID: 0}
   UI: {fileID: 0}
 --- !u!114 &734189721491409804
 MonoBehaviour:
@@ -5047,11 +5048,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 159d4dd6b8fac2a4997bb1c0d7f11cca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lives: 5
+  lives: 4
   deathY: -3
   player: {fileID: 6426661921552688481}
   levelRespawnPoint: {fileID: 0}
+  LivesUI: {fileID: 0}
   raycastOrigin: {x: 0, y: 0, z: 0}
+  FinalRatingText: {fileID: 0}
+  UIElements: {fileID: 0}
 --- !u!136 &3297468915245686336
 CapsuleCollider:
   m_ObjectHideFlags: 0

@@ -28,11 +28,17 @@ public class BonusLives : MonoBehaviour
     public MyIntEvent updatedScore;
     public MyIntEvent updatedLives;
 
+    public GameObject ScoreText;
+
+    
+
     public TextMeshPro UI;
+
+    
 
     private void Start()
     {
-        //updatedScore.AddListener(UI.GetComponent);
+        ScoreText.GetComponent<TextMeshProUGUI>().text = "" + totalFruit;
 
     }
     //player picks up fruit, adds to score and checks if has collected 100
@@ -44,8 +50,6 @@ public class BonusLives : MonoBehaviour
 
             addScore();
             addCount();
-            
-            
 
             //if player reraches 100 add one life and reset the count
             if (countFruit == 100)
@@ -61,7 +65,7 @@ public class BonusLives : MonoBehaviour
     public void addScore()
     {
         totalFruit += fruitValue;
-        updatedScore.Invoke(totalFruit);
+        ScoreText.GetComponent<TextMeshProUGUI>().text = "" + totalFruit;
     }
 
     public void addCount()

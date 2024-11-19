@@ -2,25 +2,31 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FrameStars : MonoBehaviour
 {
     // Start is called before the first frame update
 
-    private object[] hearts;
-    void Start()
-    {
-        for (int i = 0; i < transform.childCount; i++)
-        {
-            print(transform.GetChild(i).gameObject);
-            hearts.Append<object>(transform.GetChild(i).gameObject);
-        }
-        
-    }
+    public GameObject[] hearts;
 
-    // Update is called once per frame
-    void Update()
+    public Sprite ActivatedStar;
+
+    public Sprite DeactivatedStar;
+
+    public int StarIndexToActivate = 0;
+
+    public void ActivateNextStar()
     {
-        
+        hearts[StarIndexToActivate].GetComponent<Image>().sprite = ActivatedStar;
+        StarIndexToActivate++;
+        Mathf.Clamp(StarIndexToActivate, 0, hearts.Length - 1);
+    }
+    public void DeactivateLastStar()
+    {
+        print("Deactivating next star");
+        hearts[StarIndexToActivate - 1].GetComponent<Image>().sprite = DeactivatedStar;
+        StarIndexToActivate--;
+        Mathf.Clamp(StarIndexToActivate, 0, hearts.Length - 1);
     }
 }

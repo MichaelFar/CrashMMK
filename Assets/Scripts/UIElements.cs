@@ -7,9 +7,13 @@ public class UIElements : MonoBehaviour
     // Start is called before the first frame update
 
     public GameObject HUDRoundEndFrame;
+
+    public GameObject player;
+
+    public GameObject FinalScoreStars;
     private void Start()
     {
-        ToggleRoundEndFrame();
+        //ToggleRoundEndFrame();
     }
 
     public void CallNextLevel()
@@ -25,4 +29,5 @@ public class UIElements : MonoBehaviour
     {
         HUDRoundEndFrame.SetActive(!HUDRoundEndFrame.activeSelf);
     }
+    
 }

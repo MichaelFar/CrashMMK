@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 
@@ -20,13 +21,24 @@ public class PlayerLives : MonoBehaviour
 
     public GameObject levelRespawnPoint;
 
-    
+    public GameObject LivesUI;
 
     public Vector3 raycastOrigin;
 
-    
+    public GameObject FinalRatingText;
 
-    
+    public GameObject UIElements;
+
+
+    private void Start()
+    {
+        for (int i = 0; i < lives; i++)
+        {
+            LivesUI.GetComponent<FrameStars>().ActivateNextStar();
+        }
+        
+    }
+
     void Update()
     {
         //kills player if falls into void
@@ -35,10 +47,6 @@ public class PlayerLives : MonoBehaviour
             levelRespawn();
         }
 
-
-        //detects if player is jumping on enemy to kill it
-        
-      
     }
 
 
@@ -46,13 +54,22 @@ public class PlayerLives : MonoBehaviour
     public void levelRespawn()
     {
         lives--;
+        
+        LivesUI.GetComponent<FrameStars>().DeactivateLastStar();
+        
+        
 
-        if(lives == 0)
+        if (lives == 0)
         {
             player.GetComponent<PlayerController>().PlayerDeath();
+            
+            FinalRatingText.GetComponent<TextMeshProUGUI>().text = "You did bad";
+
+            UIElements.GetComponent<UIElements>().ToggleRoundEndFrame();
         }
         else
         {
+            
             transform.position = levelRespawnPoint.transform.position;
         }
 

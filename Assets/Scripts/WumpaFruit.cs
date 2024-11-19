@@ -6,9 +6,4 @@ public class WumpaFruit : MonoBehaviour
 {
     public GameObject wumpaFruit;
 
-    
-
-
-
-
 }
